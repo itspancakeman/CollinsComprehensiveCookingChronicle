@@ -27,5 +27,5 @@ Below is a screenshot of my DB schema, note the connections, which will allow fo
 
 ![db-schema](https://github.com/itspancakeman/Poject-2--FullStackApplication/assets/111628154/b561f6f8-2897-4b66-9072-96266a305719)
 
-Below here you can also find a link to my user stories, which are built out in Vira, a scrum template tool.
+Below here you can also find a link to my user stories, which are built out in Jira, a scrum template tool.
 
