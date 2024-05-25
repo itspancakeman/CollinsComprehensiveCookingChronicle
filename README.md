@@ -27,5 +27,6 @@ Below is a screenshot of my DB schema, note the connections, which will allow fo
 
 ![db-schema](https://github.com/itspancakeman/Poject-2--FullStackApplication/assets/111628154/b561f6f8-2897-4b66-9072-96266a305719)
 
-Below here you can also find a link to my user stories, which are built out in Jira, a scrum template tool.
+Below here you can also find a screenshot of some of my first user stories. I'm planning to stay organized and Agile with the Scrum management tool Jira, pictured below.
 
+![user-stories](https://github.com/itspancakeman/Poject-2--FullStackApplication/assets/111628154/35b99315-b573-4cca-bd13-7cee5e9025dd)
