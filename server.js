@@ -30,6 +30,12 @@ app.use((req, res, next) => {
     next();
 });
 
+// ===== GET ROUTES ===== 
+//----- HOME -----
+app.get('/', (req, res) => {
+    res.render('home', {});
+});
+
 
 // ===== SERVER LISTENER ===== 
 const server = app.listen(PORT, () => {
