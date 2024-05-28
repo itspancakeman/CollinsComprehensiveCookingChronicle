@@ -1,6 +1,6 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-// const { validPassword } = require('../utils');
+const { validPassword } = require('../utils');
 // const { User } = require('../models');
 
 const STRATEGY = new LocalStrategy({
@@ -21,12 +21,12 @@ const STRATEGY = new LocalStrategy({
 });
 
 passport.serializeUser((user, callback) => {
-    callback(null, user.email);
+    callback(null, user.username);
 });
 
-passport.deserializeUser(async (email, callback) => {
+passport.deserializeUser(async (username, callback) => {
     try {
-        const user = await User.findOne({ email });
+        const user = await User.findOne({ username });
 
         if (user) {
             callback(null, user);
