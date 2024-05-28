@@ -1,0 +1,29 @@
+{
+  "name": "project-2--fullstackapplication",
+  "version": "1.0.0",
+  "description": "The goal of the project is the build a full stack application from scratch! My app has yet to be named but will be a cooking resource with several databases that make it easy to find a recipe for dinner, learn more about ingredients you'd like to try, or keep track of your own learning goals!",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node server.js",
+    "dev": "nodemon"
+  },
+  "keywords": [],
+  "author": "Collin St-Onge",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.18.0",
+    "method-override": "^3.0.0",
+    "mongodb": "^6.6.2",
+    "mongoose": "^8.4.0",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0"
+  }
+}
