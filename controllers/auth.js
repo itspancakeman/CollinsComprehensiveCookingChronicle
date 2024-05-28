@@ -1,7 +1,10 @@
 const express = require('express');
 const app = express();
 const router = express.Router();
-const passport = require('../models');
+const passport = require('../config/passport-config');
+
+// import the user model
+const { User } = require('../models');
 
 //====== GET ROUTES =====
 //----- SIGNUP PAGE -----
@@ -34,6 +37,7 @@ app.post('/signup', async (req, res) => {
         if (!findUser) {
             const newUser = await User.create({
                 name: req.body.name,
+                username: req.body.username,
                 email: req.body.email,
                 phone: req.body.phone,
                 password: req.body.password
