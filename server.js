@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 const passport = require('./config/passport-config');
 const isLoggedIn = require('./middleware/isLoggedIn');
 const SECRET_SESSION = process.env.SECRET_SESSION;
-
+const { User } = require('./models');
 // ====== MIDDLEWARE ====== 
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
@@ -40,12 +40,8 @@ app.get('/', (req, res) => {
 
 // ------ AUTHENTICATED ROUTE: user profile -----
 app.get('/profile', isLoggedIn, (req, res) => {
-    res.send(req.user);
-    res.render('profile', {
-        name: req.user.name,
-        email: req.user.email,
-        phone: req.user.phone
-    })
+    const { name, email, phone } = req.user;
+    res.render('profile', { name, email, phone });
 });
 
 // ===== SERVER LISTENER ===== 

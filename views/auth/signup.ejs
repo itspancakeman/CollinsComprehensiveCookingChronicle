@@ -26,8 +26,8 @@
           <ul>
             <li><a href="/">Home</a></li>
             <% if(!currentUser) { %> 
-              <li><a href="/auth/signup">Signup</a></li>
-              <li><a href="/auth/login">Login</a></li>
+              <li><a href="/auth/signup.ejs">Signup</a></li>
+              <li><a href="/auth/login.ejs">Login</a></li>
             <% } else { %> 
             <li><a href="/auth/logout">Logout</a></li>
             <li><a href="/profile">Profile</a></li>
@@ -43,9 +43,6 @@
             <div class="input-box">
                 <input type="text" placeholder="Name" name="name" required>
                 <input type="text" placeholder="Phone Number xxx-xxx-xxxx" name="phone" required>
-            </div>
-            <div class="input-box">
-                <input type="text" placeholder="Username" name="username" required>
             </div>
             <div class="input-box">
                 <input type="email" placeholder="Email" name="email">

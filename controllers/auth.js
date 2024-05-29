@@ -1,5 +1,4 @@
 const express = require('express');
-const app = express();
 const router = express.Router();
 const passport = require('../config/passport-config');
 
@@ -31,38 +30,39 @@ router.get('/logout', (req, res) => {
 });
 
 // ====== POST ROUTES ===== 
-app.post('/signup', async (req, res) => {
+router.post('/signup', async (req, res) => {
     try {
         const findUser = await User.findOne({ email: req.body.email });
         if (!findUser) {
             const newUser = await User.create({
                 name: req.body.name,
-                username: req.body.username,
                 email: req.body.email,
                 phone: req.body.phone,
                 password: req.body.password
             });
-
+            console.log('----- NEW USER ----\n', newUser);
             passport.authenticate('local', {
-                successRedirect: '/',
-                successFlash: `Welcome ${newUser.name}. Account Created.`
+                successRedirect: '/profile',
+                successFlash: `Welcome ${newUser.name}! Account created.`
             })(req, res);
         } else {
-            req.flash('error', 'Phone number needs to be formatted as XXX-XXX-XXXX');
-            res.redirect('/signup');
+            req.flash('error', 'Email already exists. Try another email');
+            res.redirect('/auth/signup');
         }
     } catch (error) {
-        console.log('----ERROR IN SIGNUP POST----', error);
+        console.log('----- ERROR IN SIGNUP POST ----', error);
         if (error.errors.phone.name === 'ValidatorError') {
-            req.flash('error', 'Phone number needs to be formatted as XXX-XXX-XXXX');
-            res.redirect('/signup');
+            req.flash('error', 'Phone number needs be for in format XXX-XXX-XXXX');
+            res.redirect('/auth/signup');
         }
     }
 });
 
-app.post('/login', passport.authenticate('local', {
-    successRedirect: '/',
-    failureRedirect: '/login',
+    
+
+router.post('/login', passport.authenticate('local', {
+    successRedirect: '/profile',
+    failureRedirect: '/auth/login',
     successFlash: 'Welcome back to your account!',
     failureFlash: 'Either your email or password is incorrect, please try again.'
 }), (req, res) => {

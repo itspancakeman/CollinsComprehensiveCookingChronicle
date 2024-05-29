@@ -4,29 +4,31 @@ const { validPassword } = require('../utils');
 const { User } = require('../models');
 
 const STRATEGY = new LocalStrategy({
-    usernameField: 'username',
+    usernameField: 'email',
     passwordField: 'password'
-}, async (username, password, callback) => {
+}, async (email, password, callback) => {
     try {
-        const user = await User.findOne({ username });
+        const user = await User.findOne({ email });
 
         if (!user || !validPassword(password, user.password)) {
             callback(null, false);
         } else {
+            console.log(user);
             callback(null, user);
         }
     } catch (error) {
         console.log('----error-----\n', error);
+        callback(error);
     }
 });
 
 passport.serializeUser((user, callback) => {
-    callback(null, user.username);
+    callback(null, user.email);
 });
 
-passport.deserializeUser(async (username, callback) => {
+passport.deserializeUser(async (email, callback) => {
     try {
-        const user = await User.findOne({ username });
+        const user = await User.findOne({ email });
 
         if (user) {
             callback(null, user);
