@@ -40,8 +40,19 @@ app.get('/', (req, res) => {
     res.render('home', {});
 });
 
-app.get('/ingredients/:ingredientName', (req, res) => {
-    res.render('data/ingredients', {ingredient: req.params.ingredientName})
+app.get('/ingredients/:ingredientName', async (req, res) => {
+
+    try {
+        const foundIngredient = await Ingredient.findOne({ name: req.params.ingredientName})
+        console.log(foundIngredient);
+        if (foundIngredient.name && foundIngredient.avgWeight && foundIngredient.flavor && 
+            foundIngredient.edibleRaw && foundIngredient.origin && foundIngredient.color && 
+            foundIngredient.scientificName) {
+                res.render('data/ingredients', {ingredient: foundIngredient});
+            }
+        } catch (error) {
+        res.status(404).send('<h1>404! Page Not Found.</h1>')
+    }
 });
 
 // ------ AUTHENTICATED ROUTE: user profile -----
