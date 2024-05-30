@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingredients</title>
+</head>
+<body>
+    <div class="logo">
+        <div class="logo-img">
+            <img src="#" alt="logo-img"> 
+        </div>
+        <h3 class="app-name">Collin'sComprehensiveCookingChronicle</h3>
+    </div>
+    
+    <header>
+        <nav class="navbar">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <% if(!currentUser) { %> 
+              <li><a href="/auth/signup">Signup</a></li>
+              <li><a href="/auth/login">Login</a></li>
+            <% } else { %> 
+            <li><a href="/auth/logout">Logout</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <% } %> 
+            <li><a href="/ingredients">Ingredients</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="ing-name">
+            <h1><span id="ing-name"><%= ingredient.name %></span></h1>
+      </div>
+
+      <div class="ing-table">
+        <table class="table table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Breakdown:</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Average Weight:</th>
+                <td><%= ingredient.avgWeight %></td>
+              </tr>
+              <tr>
+                <th scope="row">Color:</th>
+                <td><%= ingredient.color %></td>
+              </tr>
+              <tr>
+                <th scope="row">Flavor:</th>
+                <td><%= ingredient.flavor %></td>
+              </tr>
+              <tr>
+                <th scope="row">Edible Raw?:</th>
+                <td><%= ingredient.edibleRaw %></td>
+              </tr>
+              <tr>
+                <th scope="row">Origin:</th>
+                <td><%= ingredient.origin %></td>
+              </tr>
+              <tr>
+                <th scope="row">Scientific Name:</th>
+                <td><%= ingredient.scientificName %></td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+
+</body>
+</html>
