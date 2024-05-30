@@ -9,6 +9,8 @@ const passport = require('./config/passport-config');
 const isLoggedIn = require('./middleware/isLoggedIn');
 const SECRET_SESSION = process.env.SECRET_SESSION;
 const { User } = require('./models');
+const { Ingredient } = require('./models');
+const { Recipe } = require('./models');
 // ====== MIDDLEWARE ====== 
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
@@ -38,10 +40,18 @@ app.get('/', (req, res) => {
     res.render('home', {});
 });
 
+app.get('/ingredients/:ingredientName', (req, res) => {
+    res.render('data/ingredients', {ingredient: req.params.ingredientName})
+});
+
 // ------ AUTHENTICATED ROUTE: user profile -----
 app.get('/profile', isLoggedIn, (req, res) => {
     const { name, email, phone } = req.user;
     res.render('profile', { name, email, phone });
+});
+
+app.all('*', (req, res) => {
+    res.status(404).send('<h1>404! Page Not Found.</h1>');
 });
 
 // ===== SERVER LISTENER ===== 
