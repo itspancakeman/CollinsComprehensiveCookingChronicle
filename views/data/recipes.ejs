@@ -32,10 +32,63 @@
 
       <div class="recipe-header">
         <h1><span id="recipe-header"><%= recipe.name %></span></h1>
-        <h2>Posted By: <%= user.name %></h2>
+        <h2>Posted By: <%= recipe.submittedBy %></h2>
         <h2>Total Time Til Eating: <%= recipe.totalTime %></h2>
       </div>
 
+      <div class="ing-list">
+        <table class="table table-dark">
+          <thead>
+            <tr>
+              <th scope="col">Ingredients:</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= recipe.ingredients.filling %></td>
+            </tr>
+            <tr>
+              <td><%= recipe.ingredients.biscuits %></td>
+            </tr>
+            <tr>
+              <td><%= recipe.ingredients.topping %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="directions">
+        <table class="table table-dark">
+          <thead>
+            <tr>
+              <th scope="col">Directions:</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= recipe.directions.step1 %></td>
+            </tr>
+            <tr>
+              <td><%= recipe.directions.step2 %></td>
+            </tr>
+            <tr>
+              <td><%= recipe.directions.step3 %></td>
+            </tr>
+            <tr>
+              <td><%= recipe.directions.step4 %></td>
+            </tr>
+            <tr>
+              <td><%= recipe.directions.step5 %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+     <div class="recipe-pics">
+      <img src="#" alt="recipe-pic-1">
+      <img src="#" alt="recipe-pic-2">
+      <img src="#" alt="recipe-pic-3">
+     </div>
      
 </body>
 </html>

@@ -2,6 +2,7 @@ const { Recipe } = require('../models');
 
 Recipe.create({
     name: 'Blackberry-Cherry Cobbler with Honey Whipped Cream',
+    id: 1,
     prepTime: '1.5 hours',
     cookTime: '40 minutes',
     totalTime: '2 hours 10 minutes',
@@ -43,7 +44,7 @@ Recipe.create({
     },
     submittedBy: 'Collin St-Onge'
 })
-.then(ingredient => {
+.then(recipe => {
     console.log('----new recipe----\n', recipe);
 })
 .catch(error => {

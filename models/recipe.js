@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const recipeSchema = new mongoose.Schema({
     name: {type: String, required: true},
+    id: {type: Number, required: true, unique: true},
     prepTime: {type: String, required: true},
     cookTime: {type: String, required: true},
     totalTime: {type: String, required: true},

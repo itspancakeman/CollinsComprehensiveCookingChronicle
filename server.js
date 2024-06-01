@@ -14,7 +14,7 @@ const { Recipe } = require('./models');
 // ====== MIDDLEWARE ====== 
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(__dirname + '/public'));
+app.use('/', express.static('public'));
 app.use(session({
     secret: SECRET_SESSION,
     resave: false,
@@ -40,6 +40,7 @@ app.get('/', (req, res) => {
     res.render('home', {});
 });
 
+//----- SINGLE INGREDIENT -----
 app.get('/ingredients/:ingredientName', async (req, res) => {
 
     try {
@@ -49,6 +50,22 @@ app.get('/ingredients/:ingredientName', async (req, res) => {
             foundIngredient.edibleRaw && foundIngredient.origin && foundIngredient.color && 
             foundIngredient.scientificName) {
                 res.render('data/ingredients', {ingredient: foundIngredient});
+            }
+        } catch (error) {
+        res.status(404).send('<h1>404! Page Not Found.</h1>')
+    }
+});
+
+//----- SINGLE RECIPE -----
+app.get('/recipes/:recipeID', async (req, res) => {
+
+    try {
+        const foundRecipe = await Recipe.findOne({ id: req.params.recipeID})
+        console.log(foundRecipe);
+        if (foundRecipe.name && foundRecipe.prepTime && foundRecipe.cookTime && 
+            foundRecipe.totalTime && foundRecipe.servings && foundRecipe.ingredients && 
+            foundRecipe.directions && foundRecipe.submittedBy) {
+                res.render('data/recipes', { recipe: foundRecipe });
             }
         } catch (error) {
         res.status(404).send('<h1>404! Page Not Found.</h1>')
