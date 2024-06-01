@@ -8,31 +8,31 @@ Recipe.create({
     totalTime: '2 hours 10 minutes',
     servings: 8,
     ingredients: {
-        filling: {
-            blackberries: '2lbs or 3.5 cups',
-            cherries: '1lb or 2 cups',
-            sugar: '1/2 cup',
-            APFlour: '3 tablespoons',
-            lemonJuice: '2 tablespoons',
-            marjoram: '1 tablespoon',
-            vanillaExtract: '1 teaspoon',
-            cinnamon: '0.5 teaspoon',
-            salt: '0.25 teaspoon'
+        item1: {
+            ing1: 'blackberries - 2lbs or 3.5 cups',
+            ing2: 'cherries - 1lb or 2 cups',
+            ing3: 'sugar - 1/2 cup',
+            ing4: 'APFlour - 3 tablespoons',
+            ing5: 'lemonJuice - 2 tablespoons',
+            ing6: 'marjoram - 1 tablespoon',
+            ing7: 'vanillaExtract - 1 teaspoon',
+            ing8: 'cinnamon - 0.5 teaspoon',
+            ing9: 'salt - 0.25 teaspoon'
         },
-        biscuits: {
-            APFlour: '2 cups',
-            bakingPowder: '2 teaspoons',
-            salt: '1 teaspoon',
-            sugar: '1 tablespoon',
-            unsaltedButter: '0.5 cup, chilled and cut into pieces',
-            buttermilk: '0.75 cup',
-            eggs: '1 large, beaten'
+        item2: {
+            ing1: 'APFlour - 2 cups',
+            ing2: 'bakingPowder - 2 teaspoons',
+            ing3: 'salt - 1 teaspoon',
+            ing4: 'sugar -1 tablespoon',
+            ing5: 'unsaltedButter - 0.5 cup, chilled and cut into pieces',
+            ing6: 'buttermilk - 0.75 cup',
+            ing7: 'eggs - 1 large, beaten'
         },
-        topping: {
-            heavyCream: '0.5 cup',
-            sourCream: '0.5 cup',
-            honey: '1 tablespoon',
-            sugar: '1 tablespoon'
+        item3: {
+            ing1: 'heavyCream - 0.5 cup',
+            ing2: 'sourCream - 0.5 cup',
+            ing3: 'honey - 1 tablespoon',
+            ing4: 'sugar - 1 tablespoon'
         }
     },
     directions: {
