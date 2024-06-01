@@ -56,6 +56,16 @@ app.get('/ingredients/:ingredientName', async (req, res) => {
     }
 });
 
+// ----- ALL RECIPES -----
+app.get('/recipes', async (req, res) => {
+    try {
+        const recipe = await Recipe.find({ id: {$gt:0 } })
+        res.render('data/allrecipes', { allRecipes: recipe });
+        } catch (error) {
+        res.status(404).send('<h1>404! Page Not Found.</h1>')
+    }
+});
+
 //----- SINGLE RECIPE -----
 app.get('/recipes/:recipeID', async (req, res) => {
 
