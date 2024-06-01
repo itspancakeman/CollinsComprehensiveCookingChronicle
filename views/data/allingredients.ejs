@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>All Ingredients</title>
+</head>
+<body>
+    <div class="logo">
+        <div class="logo-img">
+            <img src="#" alt="logo-img"> 
+        </div>
+        <h3 class="app-name">Collin'sComprehensiveCookingChronicle</h3>
+    </div>
+    
+    <header>
+        <nav class="navbar">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <% if(!currentUser) { %> 
+              <li><a href="/auth/signup">Signup</a></li>
+              <li><a href="/auth/login">Login</a></li>
+            <% } else { %> 
+            <li><a href="/auth/logout">Logout</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <% } %> 
+            <li><a href="/ingredients">Ingredients</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="all-ingredients-header">
+        <h1>All <span id="all-ingredients-header">Ingredients</span></h1>
+      </div>
+      <div class="ingredients-container">
+        <div class="row">
+            <div class="col">
+                <div class="ingredients-box">
+                    <% for(let i = 0; i < allIngredients.length; i++) { %>
+
+                        <% let ingredient = allIngredients[i] %>
+                        <div class="ingredients-content">
+                            <h3 class="ingredient-card"><%= ingredient.name %></h3>
+                            <a href="./ingredients/<%= ingredient.name %>">Learn More</a>
+                        </div>
+                </div>
+                <% } %>
+            </div>
+        </div>
+      </div>
+</body>
+</html>
