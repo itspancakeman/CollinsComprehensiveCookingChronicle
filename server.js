@@ -46,7 +46,6 @@ app.get('/ingredients/:ingredientName', async (req, res) => {
 
     try {
         const foundIngredient = await Ingredient.findOne({ name: req.params.ingredientName})
-        console.log(foundIngredient);
         if (foundIngredient.name && foundIngredient.avgWeight && foundIngredient.flavor && 
             foundIngredient.edibleRaw && foundIngredient.origin && foundIngredient.color && 
             foundIngredient.scientificName) {
@@ -62,11 +61,24 @@ app.get('/recipes/:recipeID', async (req, res) => {
 
     try {
         const foundRecipe = await Recipe.findOne({ id: req.params.recipeID})
-        console.log(foundRecipe);
         if (foundRecipe.name && foundRecipe.prepTime && foundRecipe.cookTime && 
             foundRecipe.totalTime && foundRecipe.servings && foundRecipe.ingredients && 
             foundRecipe.directions && foundRecipe.submittedBy) {
                 res.render('data/recipes', { recipe: foundRecipe });
+            }
+        } catch (error) {
+        res.status(404).send('<h1>404! Page Not Found.</h1>')
+    }
+});
+
+// ----- SINGLE BLOG POST -----
+app.get('/blogs/:blogID', async (req, res) => {
+
+    try {
+        const foundBlog = await Blog.findOne({ id: req.params.blogID})
+        if (foundBlog.title && foundBlog.id && foundBlog.postedWhen && 
+            foundBlog.postedBy && foundBlog.content && foundBlog.relatedImages) {
+                res.render('data/blogs', { blog: foundBlog });
             }
         } catch (error) {
         res.status(404).send('<h1>404! Page Not Found.</h1>')
