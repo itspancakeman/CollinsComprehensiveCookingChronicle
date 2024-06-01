@@ -10,6 +10,10 @@ Below are screenshots of my wireframes for the app:
 ![completed-wireframe](https://github.com/itspancakeman/Poject-2--FullStackApplication/assets/111628154/2f1f3d70-213d-4e03-ac33-23693328bee4)
 ## HOME WIREFRAME
 ![HOME-wireframe](https://github.com/itspancakeman/Poject-2--FullStackApplication/assets/111628154/d63e9383-3472-4018-8157-9f2ddf801a15)
+
+## ALL INGREDIENTS WIREFRAME
+![]()
+
 ## INGREDIENT WIREFRAME
 ![INGREDIENT-wireframe](https://github.com/itspancakeman/Poject-2--FullStackApplication/assets/111628154/d9badb68-9c96-4a6c-b841-50876a961e22)
 ## EDUCATION WIREFRAME
