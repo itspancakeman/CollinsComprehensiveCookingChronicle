@@ -45,28 +45,28 @@ Below here you can also find a screenshot of some of my first user stories. I'm 
 
 ## UPDATE 1
 I have officially passed the assigned goal of 10 functional GET pages, standing at a total of 13 with 3 more still planned. Right now functional routes include:
--home page
--signup page
--login page
--logout page
--user profile page
--allBlogs show page
--allRecipes show page
--allIngredients show page
--singularBlogPost page
--singularRecipe page
--singularIngredient page
+- home page
+- signup page
+- login page
+- logout page
+- user profile page
+- allBlogs show page
+- allRecipes show page
+- allIngredients show page
+- singularBlogPost page
+- singularRecipe page
+- singularIngredient page
 
 Upcoming pages I still plan to include:
--form page for adding blog posts
--form page for adding recipe posts
--form page for adding ingredients
--delete page for existing blog posts
--delete page for existing recipe posts
--delete page for existing ingredients
--edit page for existing blog posts
--edit page for existing recipe posts
--edit page for existing ingredients
+- form page for adding blog posts
+- form page for adding recipe posts
+- form page for adding ingredients
+- delete page for existing blog posts
+- delete page for existing recipe posts
+- delete page for existing ingredients
+- edit page for existing blog posts
+- edit page for existing recipe posts
+- edit page for existing ingredients
 
 Also to come will be styling and design to make pages more digestable.
 
