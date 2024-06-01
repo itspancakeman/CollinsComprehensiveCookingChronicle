@@ -91,6 +91,16 @@ app.get('/recipes/:recipeID', async (req, res) => {
     }
 });
 
+// ----- ALL BLOGS -----
+app.get('/blogs', async (req, res) => {
+    try {
+        const blog = await Blog.find({ title: {$gt: 0} })
+        res.render('data/allblogs', { allBlogs: blog });
+        } catch (error) {
+        res.status(404).send('<h1>404! Page Not Found.</h1>')
+    }
+});
+
 // ----- SINGLE BLOG POST -----
 app.get('/blogs/:blogID', async (req, res) => {
 
