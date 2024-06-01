@@ -11,6 +11,7 @@ const SECRET_SESSION = process.env.SECRET_SESSION;
 const { User } = require('./models');
 const { Ingredient } = require('./models');
 const { Recipe } = require('./models');
+const { Blog } = require('./models');
 // ====== MIDDLEWARE ====== 
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
