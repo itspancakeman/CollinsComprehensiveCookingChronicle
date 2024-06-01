@@ -7,7 +7,7 @@ The goal of the project is the build a full stack application from scratch! My a
 Below are screenshots of my wireframes for the app:
 
 ## FULL WIREFRAME
-![completed-wireframe](https://github.com/itspancakeman/Poject-2--FullStackApplication/assets/111628154/2f1f3d70-213d-4e03-ac33-23693328bee4)
+![completed-wireframe](https://github.com/itspancakeman/CollinsComprehensiveCookingChronicle/assets/111628154/b097f892-6489-4e15-882f-3010e3fd5a76)
 ## HOME WIREFRAME
 ![HOME-wireframe](https://github.com/itspancakeman/Poject-2--FullStackApplication/assets/111628154/d63e9383-3472-4018-8157-9f2ddf801a15)
 ## ALL INGREDIENTS WIREFRAME
@@ -69,4 +69,3 @@ Upcoming pages I still plan to include:
 - edit page for existing ingredients
 
 Also to come will be styling and design to make pages more digestable.
-
