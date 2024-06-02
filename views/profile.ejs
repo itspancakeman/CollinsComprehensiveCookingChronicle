@@ -23,36 +23,55 @@
   <% } %>
 
   <header>
+    <div class="logo">
+      <div class="logo-img">
+          <img src="/Screenshots/logo.png" alt="logo-img"> 
+      </div>
+      <h3 class="app-name">Collin'sComprehensiveCookingChronicle</h3>
+    </div>
     <nav class="navbar">
       <ul>
         <li><a href="/">Home</a></li>
         <% if(!currentUser) { %> 
-          <li><a href="/auth/signup">Signup</a></li>
-          <li><a href="/auth/login">Login</a></li>
+        <li><a href="/auth/signup">Signup</a></li>
+        <li><a href="/auth/login">Login</a></li>
         <% } else { %> 
         <li><a href="/auth/logout">Logout</a></li>
         <li><a href="/profile">Profile</a></li>
         <% } %> 
+        <li><a href="/ingredients">Ingredients</a></li>
+        <li><a href="/recipes">Recipes</a></li>
+        <li><a href="/blogs">Blogs</a></li>
       </ul>
     </nav>
   </header>
-    
+  
     <section class="contact" id="contact">
         <h2 class="heading">Welcome to your <span>Profile!</span></h2>
             <div class="input-box">
-                <h3>Name <span><%= name %>!</h3>
-                <h3>Email <span><%= email %>! </h3>
-                <h3>Phone <span><%= phone %>! </h3>
+                <h3>Name <span><%= currentUser.name %></h3>
+                <h3>Email <span><%= currentUser.email %></h3>
+                <h3>Phone <span><%= currentUser.phone %></h3>
             </div>
     </section>
 
-    <section class="contact" id="contact">
-        <h2 class="heading">Welcome to your <span>Profile!</span></h2>
-            <div class="input-box">
-                <h3>Name <span><%= currentUser.name %>!</h3>
-                <h3>Email <span><%= currentUser.email %>! </h3>
-                <h3>Phone <span><%= currentUser.phone %>! </h3>
-            </div>
-    </section>
+    <div class="saved-recipes">
+      <h2 id="saved-recipes">Saved Recipes</h2>
+      <div class='link-box'>
+        <a href="#">Saved Recipe #1</a>
+        <a href="#">Saved Recipe #2</a>
+        <a href="#">Saved Recipe #3</a>
+      </div>
+    </div>
+
+    <div class="saved-blogs">
+      <h2 id="saved-blogs">Saved Blog Posts</h2>
+      <div class='link-box'>
+        <a href="#">Saved Blog Post #1</a>
+        <a href="#">Saved Blog Post #2</a>
+        <a href="#">Saved Blog Post #3</a>
+      </div>
+    </div>
+
 </body>
 </html>

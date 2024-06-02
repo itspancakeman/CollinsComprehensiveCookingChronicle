@@ -15,20 +15,28 @@
     </div>
     
     <header>
-        <nav class="navbar">
-          <ul>
-            <li><a href="/">Home</a></li>
-            <% if(!currentUser) { %> 
-              <li><a href="/auth/signup">Signup</a></li>
-              <li><a href="/auth/login">Login</a></li>
-            <% } else { %> 
-            <li><a href="/auth/logout">Logout</a></li>
-            <li><a href="/profile">Profile</a></li>
-            <% } %> 
-            <li><a href="/ingredients">Ingredients</a></li>
-          </ul>
-        </nav>
-      </header>
+      <div class="logo">
+        <div class="logo-img">
+            <img src="/Screenshots/logo.png" alt="logo-img"> 
+        </div>
+        <h3 class="app-name">Collin'sComprehensiveCookingChronicle</h3>
+      </div>
+      <nav class="navbar">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <% if(!currentUser) { %> 
+          <li><a href="/auth/signup">Signup</a></li>
+          <li><a href="/auth/login">Login</a></li>
+          <% } else { %> 
+          <li><a href="/auth/logout">Logout</a></li>
+          <li><a href="/profile">Profile</a></li>
+          <% } %> 
+          <li><a href="/ingredients">Ingredients</a></li>
+          <li><a href="/recipes">Recipes</a></li>
+          <li><a href="/blogs">Blogs</a></li>
+        </ul>
+      </nav>
+    </header>
 
       <div class="ing-name">
             <h1><span id="ing-name"><%= ingredient.name %></span></h1>

@@ -23,22 +23,55 @@
   <% } %>
 
   <header>
+    <div class="logo">
+      <div class="logo-img">
+          <img src="/Screenshots/logo.png" alt="logo-img"> 
+      </div>
+      <h3 class="app-name">Collin'sComprehensiveCookingChronicle</h3>
+    </div>
     <nav class="navbar">
       <ul>
         <li><a href="/">Home</a></li>
         <% if(!currentUser) { %> 
-          <li><a href="/auth/signup">Signup</a></li>
-          <li><a href="/auth/login">Login</a></li>
+        <li><a href="/auth/signup">Signup</a></li>
+        <li><a href="/auth/login">Login</a></li>
         <% } else { %> 
         <li><a href="/auth/logout">Logout</a></li>
         <li><a href="/profile">Profile</a></li>
         <% } %> 
+        <li><a href="/ingredients">Ingredients</a></li>
+        <li><a href="/recipes">Recipes</a></li>
+        <li><a href="/blogs">Blogs</a></li>
       </ul>
     </nav>
   </header>
     
-    <section class="contact" id="contact">
-        <h2 class="heading"><span>Homepage!</span></h2>
-    </section>
+  <div class="home-header">
+    <h1>Take control of what you eat</h1>
+    <h2>A resource intended to make cooking at home more accessible to all.</h2>
+  </div>
+
+  <div class="content-box">
+    <div class="blog-container">
+      <h3 id="blog-container">Learn Here</h3>
+    </div>
+    
+    <div class="main-content">
+      <img src="#" alt="home-img1">
+      <p>Create an account to save recipes and blog posts, as well as post your own!</p>
+      <p>Help to expand my database by adding new ingredients and recipes!</p>
+      <img src="#" alt="home-img2">
+    </div>
+
+    <div class="recipe-container">
+      <h3 id="recipe-container">Recipes found here!</h3>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>All rights reserved. Thanks a lot for visiting this page, if you are a recruiter or hiring manager interested in contacting me, please click the link provided below.</p>
+    <a href="#">Contact me about a job offer</a>
+  </div>
+
 </body>
 </html>

@@ -7,28 +7,29 @@
     <title>All Ingredients</title>
 </head>
 <body>
-    <div class="logo">
+    <header>
+      <div class="logo">
         <div class="logo-img">
-            <img src="#" alt="logo-img"> 
+            <img src="/Screenshots/logo.png" alt="logo-img"> 
         </div>
         <h3 class="app-name">Collin'sComprehensiveCookingChronicle</h3>
-    </div>
-    
-    <header>
-        <nav class="navbar">
-          <ul>
-            <li><a href="/">Home</a></li>
-            <% if(!currentUser) { %> 
-              <li><a href="/auth/signup">Signup</a></li>
-              <li><a href="/auth/login">Login</a></li>
-            <% } else { %> 
-            <li><a href="/auth/logout">Logout</a></li>
-            <li><a href="/profile">Profile</a></li>
-            <% } %> 
-            <li><a href="/ingredients">Ingredients</a></li>
-          </ul>
-        </nav>
-      </header>
+      </div>
+      <nav class="navbar">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <% if(!currentUser) { %> 
+          <li><a href="/auth/signup">Signup</a></li>
+          <li><a href="/auth/login">Login</a></li>
+          <% } else { %> 
+          <li><a href="/auth/logout">Logout</a></li>
+          <li><a href="/profile">Profile</a></li>
+          <% } %> 
+          <li><a href="/ingredients">Ingredients</a></li>
+          <li><a href="/recipes">Recipes</a></li>
+          <li><a href="/blogs">Blogs</a></li>
+        </ul>
+      </nav>
+    </header>
 
       <div class="all-ingredients-header">
         <h1>All <span id="all-ingredients-header">Ingredients</span></h1>
