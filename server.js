@@ -1,7 +1,9 @@
 // ===== GLOBAL VARIABLES =====
 require('dotenv').config();
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
+const jsonParser = bodyParser.json();
 const flash = require('connect-flash');
 const session = require('express-session');
 const PORT = process.env.PORT || 3000;
@@ -14,7 +16,7 @@ const { Recipe } = require('./models');
 const { Blog } = require('./models');
 // ====== MIDDLEWARE ====== 
 app.set('view engine', 'ejs');
-app.use(express.urlencoded({ extended: false }));
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
 app.use('/', express.static('public'));
 app.use(session({
     secret: SECRET_SESSION,
@@ -51,6 +53,10 @@ app.get('/ingredients', async (req, res) => {
     }
 });
 
+app.get('/ingredients/new', (req, res) => {
+    res.render('data/newIng', {});
+});
+
 //----- SINGLE INGREDIENT -----
 app.get('/ingredients/:ingredientName', async (req, res) => {
 
@@ -64,10 +70,6 @@ app.get('/ingredients/:ingredientName', async (req, res) => {
         } catch (error) {
         res.status(404).send('<h1>404! Page Not Found.</h1>')
     }
-});
-
-app.get('/ingredients/new', (req, res) => {
-    res.render('edit/new-ing', {});
 });
 
 // ----- ALL RECIPES -----
@@ -125,22 +127,36 @@ app.get('/profile', isLoggedIn, (req, res) => {
     res.render('profile', { name, email, phone });
 });
 
-app.all('*', (req, res) => {
-    res.status(404).send('<h1>404! Page Not Found.</h1>');
-});
-
 // ===== POST ROUTES =====
 // ------ NEW INGREDIENT -----
-app.post('/ingredients', async (req, res) => {
-    Ingredient.create(req.body)
+app.post('/ingredients', urlencodedParser, (req, res) => {
+    if (req.body.inlineRadio1 === 'checked') {
+        req.body.inlineRadio1 === true
+    } else {
+        req.body.inlineRadio1 === false
+    }
+
+    Ingredient.create({
+        name: req.body.ingNameInput,
+        avgWeight: req.body.avgWeightInput,
+        flavor: req.body.flavorInput,
+        edibleRaw: req.body.inlineRadio1,
+        origin: req.body.originInput,
+        color: req.body.colorInput,
+        scientificName: req.body.scientificNameInput,
+    })
     .then(newIngredient => {
         console.log('-----new ingredient-----')
-        res.redirect('data/allingredients');
+        res.redirect('/ingredients');
     })
     .catch(error => {
         console.log('-----error-----\n', error);
         res.send('<h1>Error creating ingredient</h1>')
     })
+});
+
+app.all('*', (req, res) => {
+    res.status(404).send('<h1>404! Page Not Found.</h1>');
 });
 
 // ===== SERVER LISTENER ===== 
