@@ -66,6 +66,10 @@ app.get('/ingredients/:ingredientName', async (req, res) => {
     }
 });
 
+app.get('/ingredients/new', (req, res) => {
+    res.render('edit/new-ing', {});
+});
+
 // ----- ALL RECIPES -----
 app.get('/recipes', async (req, res) => {
     try {
@@ -123,6 +127,20 @@ app.get('/profile', isLoggedIn, (req, res) => {
 
 app.all('*', (req, res) => {
     res.status(404).send('<h1>404! Page Not Found.</h1>');
+});
+
+// ===== POST ROUTES =====
+// ------ NEW INGREDIENT -----
+app.post('/ingredients', async (req, res) => {
+    Ingredient.create(req.body)
+    .then(newIngredient => {
+        console.log('-----new ingredient-----')
+        res.redirect('data/allingredients');
+    })
+    .catch(error => {
+        console.log('-----error-----\n', error);
+        res.send('<h1>Error creating ingredient</h1>')
+    })
 });
 
 // ===== SERVER LISTENER ===== 
