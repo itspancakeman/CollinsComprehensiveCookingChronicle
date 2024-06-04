@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Whisper&display=swap');
+
+:root {
+    --bg-color: #FEFFDE;
+    --second-bg-color: #DDFFBC;
+    --text-color: #52734D;
+    --main-color: #91C788;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Indie Flower", sans-serif;
+    background-color: var(--bg-color);
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+header {
+    width: 1000px;
+    display: grid;
+    grid-template-columns: 2fr repeat(6, 1fr);
+    grid-template-rows: repeat(2, 1fr) 0.5fr;
+    gap: 5px;
+    padding: 10px;
+    margin-left: 450px;
+    background: var(--second-bg-color);
+}
+
+.logo {
+    grid-area: 1 / 1 / 3 / 2;
+    margin-left: 15px;
+    margin-top: 15px;
+    padding: 15px;
+    background: var(--second-bg-color);
+}
+
+.header-square {
+    grid-area: 3 / 1 / 4 / 2;
+    background: var(--second-bg-color);
+}
+
+.logo img {
+    border: solid 3px var(--main-color);
+}
+
+.app-name {
+    grid-column: 1;
+    grid-row: 1;
+    font-size: 20px;
+    text-align: center;
+    background: var(--second-bg-color);
+    padding: 13px;
+}
+
+ul {
+    grid-column: 2;
+    grid-row: 1;
+    background: var(--second-bg-color);
+}
+
+#navbar {
+    display: inline;
+    border: solid 3px black;
+    text-align: center;
+    padding: 15px;
+}
+
+.navbar {
+    grid-area: 1 / 2 / 2 / 8;
+    background: var(--second-bg-color);
+    list-style-type: none;
+    margin-left: 20px;
+    padding: 15px;
+}
+
+#navbar a:hover {
+    color: white;
+}
+
+.home-header {
+    grid-area: 2 / 2 / 4 / 8;
+    background: var(--second-bg-color);
+    height: 250px;
+    border: solid 3px var(--main-color);
+    text-align: center;
+}
+
+.home-header h1 {
+    background: var(--second-bg-color);
+    padding: 10px;
+}
+
+.home-header h2 {
+    background: var(--second-bg-color);
+    padding: 10px;
+}
+
+.content-box {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 5px;
+    width: 1000px;
+    height: 500px;
+    margin-left: 450px;
+    text-align: center;
+    background-color: var(--bg-color);
+}
+
+.content-box .blog-container {
+    grid-area: 1 / 1 / 3 / 2;
+    border: solid 3px var(--main-color);
+}
+
+.content-box .recipe-container {
+    grid-area: 1 / 4 / 3 / 5;
+    border: solid 3px var(--main-color);
+}
+
+.content-box img {
+    margin-top: 20px;
+    height: 200px;
+    width: 150px;
+}
+
+.content-box .img1 {
+    grid-area: 1 / 2 / 2 / 3;
+    border: solid 3px var(--main-color);
+    background: var(--second-bg-color);
+}
+
+.content-box .img2 {
+    grid-area: 2 / 3 / 3 / 4;
+    border: solid 3px var(--main-color);
+    background: var(--second-bg-color);
+}
+
+.content-box h3 {
+    background: var(--second-bg-color);
+    padding: 10px;
+}
+
+.content-box p {
+    background: var(--second-bg-color);
+    height: 100%;
+    padding: 10px;
+}
+
+.content-box .p1 {
+    grid-area: 1 / 3 / 2 / 4;
+    border: solid 3px var(--main-color);
+}
+
+.content-box .p2 {
+    grid-area: 2 / 2 / 3 / 3;
+    border: solid 3px var(--main-color);
+}
+
+.footer {
+    width: 1000px;
+    margin-left: 450px;
+    text-align: center;
+    padding: 10px;
+}
