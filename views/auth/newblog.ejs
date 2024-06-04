@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Blog Post</title>
+</head>
+<body>
+
+    <% if (alerts.success) { %>
+        <% alerts.success.forEach(msg => { %>
+           
+          <div class="alert alert-success"><%= msg %></div>
+        <% }) %>
+      <% } %>
+  
+      <% if (alerts.error) { %>
+        <% alerts.error.forEach(msg => { %>
+         <div class="alert alert-danger"><%= msg %></div>
+        <% }) %>
+    <% } %>  
+
+    <header>
+        <div class="logo">
+          <div class="logo-img">
+              <img src="/Screenshots/logo.png" alt="logo-img"> 
+          </div>
+          <h3 class="app-name">Collin'sComprehensiveCookingChronicle</h3>
+        </div>
+        <nav class="navbar">
+          <ul>
+            <li id="navbar"><a href="/">Home</a></li>
+            <% if(!currentUser) { %> 
+            <li id="navbar"><a href="/auth/signup">Signup</a></li>
+            <li id="navbar"><a href="/auth/login">Login</a></li>
+            <% } else { %> 
+            <li id="navbar"><a href="/auth/logout">Logout</a></li>
+            <li id="navbar"><a href="/profile">Profile</a></li>
+            <% } %> 
+            <li id="navbar"><a href="/ingredients">Ingredients</a></li>
+            <li id="navbar"><a href="/recipes">Recipes</a></li>
+            <li id="navbar"><a href="/blogs">Blogs</a></li>
+          </ul>
+        </nav>
+    
+        <div class="new-blog-header">
+          <h1>Create a new blog post</h1>
+          <h2>Share cooking tips, or reflect on your memorable food experiences!</h2>
+        </div>
+    
+      </header>
+
+
+      <div class="form-container">
+        <a href="/blogs">go back...</a>
+
+        <form action="/blogs" method="POST">
+
+            <div class="blog-form">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" name="title">
+            </div>
+
+            <div class="blog-form">
+                <label for="id" class="form-label">ID number</label>
+                <input type="number" class="form-control" id="id" name="id">
+            </div>
+
+            <div class="blog-form">
+                <label for="post" class="form-label">Post</label>
+                <input type="text" class="form-control" id="post" name="post" placeholder="share your thoughts here">
+            </div>
+
+            <div class="blog-form">
+                <label for="images" class="form-label">Images (optional)</label>
+                <input type="file" class="form-control" id="images" name="images">
+            </div>
+
+            <div class="blog-form">
+                <input type="submit" class="form-control" id="submitButton">
+            </div>
+
+        </form>
+
+        <div class="information-box">
+            <h3>INFORMATION</h3>
+            <ul>
+                <li><p>We will never share your information with a third party</p></li>
+                <li><p>Please come up with a unique 3-digit ID number for your post</p></li>
+                <li><p>Images are optional, currently a maximum of two are allowed</p></li>
+            </ul>
+        </div>
+
+      </div>
+
+</body>
+</html>

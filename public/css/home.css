@@ -123,9 +123,9 @@ ul {
 }
 
 .content-box img {
-    margin-top: 20px;
-    height: 200px;
-    width: 150px;
+    margin-top: 10px;
+    height: 225px;
+    width: 175px;
 }
 
 .content-box .img1 {
@@ -143,6 +143,7 @@ ul {
 .content-box h3 {
     background: var(--second-bg-color);
     padding: 10px;
+    font-weight: 800;
 }
 
 .content-box p {

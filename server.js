@@ -87,6 +87,7 @@ app.get('/ingredients', async (req, res) => {
     }
 });
 
+// ----- NEW INGREDIENT -----
 app.get('/ingredients/new', (req, res) => {
     res.render('data/newIng', {});
 });
@@ -141,6 +142,10 @@ app.get('/blogs', async (req, res) => {
     }
 });
 
+app.get('/blogs/new', isLoggedIn, (req, res) => {
+    res.render('auth/newblog', {});
+});
+
 // ----- SINGLE BLOG POST -----
 app.get('/blogs/:blogID', async (req, res) => {
 
@@ -161,6 +166,7 @@ app.get('/profile', isLoggedIn, (req, res) => {
     res.render('profile', { name, email, phone });
 });
 
+// ===== CATCH BAD LINKS =====
 app.all('*', (req, res) => {
     res.status(404).send('<h1>404! Page Not Found.</h1>');
 });
