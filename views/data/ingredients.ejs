@@ -42,6 +42,17 @@
             <h1><span id="ing-name"><%= ingredient.name %></span></h1>
       </div>
 
+      <div class="edit-delete-container">
+        <a href="/ingredients/<%= ingredient.name %>/edit">
+          <button>EDIT</button>
+        </a>
+
+        <a href="/ingredients/<%= ingredient.name %>/delete">
+          <button>DELETE</button>
+        </a>
+
+      </div>
+
       <div class="ing-table">
         <table class="table table-dark">
             <thead>
