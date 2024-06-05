@@ -107,4 +107,8 @@ router.post('/blogs', urlencodedParser, isLoggedIn, async (req, res) => {
         return res.redirect('/blogs/new');
     }
 });
+
+// ----- EDIT BLOG POST -----
+
+
 module.exports = router;

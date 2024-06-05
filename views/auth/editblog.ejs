@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Post</title>
+</head>
+<body>
+    <% if (alerts.success) { %>
+        <% alerts.success.forEach(msg => { %>
+           
+          <div class="alert alert-success"><%= msg %></div>
+        <% }) %>
+      <% } %>
+  
+      <% if (alerts.error) { %>
+        <% alerts.error.forEach(msg => { %>
+         <div class="alert alert-danger"><%= msg %></div>
+        <% }) %>
+    <% } %>
+  
+    <header>
+      <div class="logo">
+        <div class="logo-img">
+            <img src="/Screenshots/logo.png" alt="logo-img"> 
+        </div>
+        <h3 class="app-name">Collin'sComprehensiveCookingChronicle</h3>
+      </div>
+      <nav class="navbar">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <% if(!currentUser) { %> 
+          <li><a href="/auth/signup">Signup</a></li>
+          <li><a href="/auth/login">Login</a></li>
+          <% } else { %> 
+          <li><a href="/auth/logout">Logout</a></li>
+          <li><a href="/profile">Profile</a></li>
+          <% } %> 
+          <li><a href="/ingredients">Ingredients</a></li>
+          <li><a href="/recipes">Recipes</a></li>
+          <li><a href="/blogs">Blogs</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="edit-container">
+        <div class="edit-form">
+
+            <form action="/blogs/<%= blogId %>/?_method=PUT" method="POST">
+            
+                <div class="edit-blog-form">
+                    <div class="form-text" id="editBlogHeader">Make changes here</div>
+                </div>
+
+                <div class="edit-blog-form">
+                    <label for="title" class="form-label">title:</label>
+                    <input type="text" class="form-control" id="title" name="title" value="<%= blog.title %>">
+                </div>
+
+                <div class="edit-blog-form">
+                    <label for="post" class="form-label">post:</label>
+                    <input type="text" class="form-control" id="post" name="post" value="<%= blog.content %>">
+                </div>
+
+                <div class="edit-blog-form">
+                    <input type="submit" class="form-control" id="submitButton">
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
