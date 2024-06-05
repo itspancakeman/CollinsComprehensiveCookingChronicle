@@ -7,6 +7,7 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
 // import the user model
 const { User } = require('../models');
 const { Blog } = require('../models');
+const isLoggedIn = require('../middleware/isLoggedIn');
 
 //====== GET ROUTES =====
 //----- SIGNUP PAGE -----
@@ -64,7 +65,7 @@ router.post('/signup', urlencodedParser, async (req, res) => {
 
     
 
-router.post('/login', passport.authenticate('local', {
+router.post('/login', urlencodedParser, passport.authenticate('local', {
     successRedirect: '/profile',
     failureRedirect: '/auth/login',
     successFlash: 'Welcome back to your account!',
@@ -74,40 +75,36 @@ router.post('/login', passport.authenticate('local', {
 });
 
 // ----- NEW BLOG POST -----
-router.post('/blogs', urlencodedParser, async (req, res) => {
+router.post('/blogs', urlencodedParser, isLoggedIn, async (req, res) => {
     const { title, id, post, images } = req.body;
     const date = new Date();
-    if (!title, !id, !post) {
+    if (!title || !id || !post) {
         req.flash('error', 'Title, ID, and post are required');
         return res.redirect('/blogs/new');
     }
 
     try {
-        const findId = await Blog.findOne({ id: req.body.id });
+        const findId = await Blog.findOne({ id: id });
         if (!findId) {
-        const newBlogPost = await Blog.create({
-            title: title,
-            id: id,
-            postedWhen: getDate(date),
-            postedBy: current.user,
-            content: post,
-            relatedImages: images
-        });
-        console.log('-----new blog -----', newBlogPost);
-        passport.authenticate('local', {
-            successRedirect: '/blogs',
-            failureRedirect: '/blogs/new',
-            successFlash: 'Post successfully created!',
-            failureFlash: 'Error commiting post, please try again'
-        })(req, res)
+            const newBlogPost = await Blog.create({
+                title: title,
+                id: id,
+                postedWhen: date.toISOString(),
+                postedBy: req.user._id,                                                                                                               
+                content: post,
+                relatedImages: images
+            });
+            console.log('-----new blog -----', newBlogPost);
+            req.flash('success', 'Post successfully created!');
+            return res.redirect('/blogs');
         } else {
-        req.flash('error', 'ID already exists, please try again');
-        res.redirect('/auth/newblog');
+            req.flash('error', 'ID already exists, please try again');
+            return res.redirect('/blogs/new');
         }
     } catch (error) {
-        console.log('-----error-----\m', error);
-        res.send('<h1>Error creating blog post</h1>');
+        console.log('-----error-----\n', error);
+        req.flash('error', 'An error occurred while creating the blog post');
+        return res.redirect('/blogs/new');
     }
 });
-
 module.exports = router;
