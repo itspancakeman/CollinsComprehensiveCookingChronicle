@@ -74,7 +74,7 @@ ul {
     grid-area: 1 / 2 / 2 / 8;
     background: var(--second-bg-color);
     list-style-type: none;
-    margin-left: 20px;
+    margin-left: 10px;
     padding: 15px;
 }
 
