@@ -107,6 +107,16 @@ app.get('/ingredients/:ingredientName', async (req, res) => {
     }
 });
 
+//----- EDIT INGREDIENT -----
+app.get('/ingredients/:ingredientName/edit', async (req, res) => {
+    try{
+        const ingredient = await Ingredient.findOne({ name: req.params.ingredientName});
+        res.render('data/editingredient', {ingredient: ingredient});
+    } catch (error) {
+        res.status(404).send('<h1>404! Page Not Found.</h1>')
+    }
+});
+
 // ----- ALL RECIPES -----
 app.get('/recipes', async (req, res) => {
     try {
