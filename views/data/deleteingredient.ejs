@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Ingredient</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+          <div class="logo-img">
+              <img src="/Screenshots/logo.png" alt="logo-img"> 
+          </div>
+          <h3 class="app-name">Collin'sComprehensiveCookingChronicle</h3>
+        </div>
+        <nav class="navbar">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <% if(!currentUser) { %> 
+            <li><a href="/auth/signup">Signup</a></li>
+            <li><a href="/auth/login">Login</a></li>
+            <% } else { %> 
+            <li><a href="/auth/logout">Logout</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <% } %> 
+            <li><a href="/ingredients">Ingredients</a></li>
+            <li><a href="/recipes">Recipes</a></li>
+            <li><a href="/blogs">Blogs</a></li>
+          </ul>
+        </nav>
+
+        <div class="delete-ingredient-header">
+            <h1>DELETE INGREDIENT</h1>
+        </div>
+      </header>
+
+
+      <div class="delete-container">
+
+        <h1>ARE YOU SURE?</h1>
+
+        <form action="/ingredients/<%= ingredient.name %>/?_method=PUT" method="POST">
+        
+        <div class="delete-form">
+            <input type="submit" value="YES, delete ingredient">
+        </div>
+
+        <div class="delete-form">
+            <input type="button" value="NO, take me back">
+        </div>
+
+        </form>
+
+      </div>
+
+</body>
+</html>
