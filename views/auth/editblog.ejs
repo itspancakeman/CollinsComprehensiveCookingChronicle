@@ -43,7 +43,7 @@
       </nav>
 
       <div class="edit-blog-header">
-        <h1>EDIT BLOG POST</h1>
+        <h1>EDIT BLOG</h1>
       </div>
 
     </header>
@@ -51,7 +51,7 @@
     <div class="edit-container">
         <div class="edit-form">
 
-            <form action="/blogs/<%= blogId %>/?_method=PUT" method="POST">
+            <form action="/blogs/<%= blog.id %>/?_method=PUT" method="POST">
             
                 <div class="edit-blog-form">
                     <div class="form-text" id="editBlogHeader">Make changes here</div>

@@ -36,6 +36,7 @@ app.use((req, res, next) => {
 
 // ---- import auth routes -----
 app.use('/auth', require('./controllers/auth'));
+app.use('/blogs', require('./controllers/blog'));
 
 // ===== POST ROUTES =====
 // ------ NEW INGREDIENT -----
