@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Ingredient</title>
+</head>
+<body>
+    <% if (alerts.success) { %>
+        <% alerts.success.forEach(msg => { %>
+           
+          <div class="alert alert-success"><%= msg %></div>
+        <% }) %>
+      <% } %>
+  
+      <% if (alerts.error) { %>
+        <% alerts.error.forEach(msg => { %>
+         <div class="alert alert-danger"><%= msg %></div>
+        <% }) %>
+    <% } %>
+  
+    <header>
+      <div class="logo">
+        <div class="logo-img">
+            <img src="/Screenshots/logo.png" alt="logo-img"> 
+        </div>
+        <h3 class="app-name">Collin'sComprehensiveCookingChronicle</h3>
+      </div>
+      <nav class="navbar">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <% if(!currentUser) { %> 
+          <li><a href="/auth/signup">Signup</a></li>
+          <li><a href="/auth/login">Login</a></li>
+          <% } else { %> 
+          <li><a href="/auth/logout">Logout</a></li>
+          <li><a href="/profile">Profile</a></li>
+          <% } %> 
+          <li><a href="/ingredients">Ingredients</a></li>
+          <li><a href="/recipes">Recipes</a></li>
+          <li><a href="/blogs">Blogs</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class='edit-container'>
+
+        <form action="/ingredients/<%= ingredient.name %>/?_method=PUT" method="POST">
+        
+            <div class="ing-form">
+                <label for="name" class="form-label">Ingredient Name</label>
+                <input type="text" class="form-control" id="name" name="name" value="<%= ingredient.name %>">
+            </div>
+            <div class="ing-form">
+                <label for="avgWeight" class="form-label">Average Weight</label>
+                <input type="text" class="form-control" id="avgWeight" name="avgWeight" value="<%= ingredient.avgWeight %>">
+            </div>
+            <div class="ing-form">
+                <label for="flavor" class="form-label">Flavor</label>
+                <input type="text" class="form-control" id="flavor" name="flavor" value="<%= ingredient.flavor %>">
+            </div>
+            <div class="ing-form">
+                <div class="form-text" id="edibleRawInput">Edible Raw?</div>
+                <input class="form-check-input" type="radio" name="edibleRaw" id="inlineRadio1" value="option1" checked>
+                <label class="form-check-label" for="inlineRadio1">Yes</label>
+                <input class="form-check-input" type="radio" name="edibleRaw" id="inlineRadio2" value="option2">
+                <label class="form-check-label" for="inlineRadio2">No</label>
+            </div>
+            <div class="ing-form">
+                <label for="origin" class="form-label">Origin</label>
+                <input type="text" class="form-control" id="origin" name="origin" value="<%= ingredient.origin %>">
+            </div>
+            <div class="ing-form">
+                <label for="color" class="form-label">Color</label>
+                <input type="text" class="form-control" id="color" name="color" value="<%= ingredient.color %>">
+            </div>
+            <div class="ing-form">
+                <label for="scientificName" class="form-label">Scientific Name</label>
+                <input type="text" class="form-control" id="scientificName" name="scientificName" value="<%= ingredient.scientificName %>">
+            </div>
+            <div class="ing-form">
+                <label for="image" class="form-label">Image (optional)</label>
+                <input type="file" class="form-control" id="image" name="image">
+            </div>
+            <div class="ing-form">
+                <input type="submit" class="form-control" id="submitButton">
+            </div>
+        
+        </form>
+
+    </div>
+
+
+</body>
+</html>
