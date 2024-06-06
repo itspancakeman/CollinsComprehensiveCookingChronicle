@@ -10,6 +10,7 @@ const passport = require('./config/passport-config');
 const isLoggedIn = require('./middleware/isLoggedIn');
 const SECRET_SESSION = process.env.SECRET_SESSION;
 const methodOverride = require('method-override');
+const axios = require('axios');
 const { User } = require('./models');
 const { Ingredient } = require('./models');
 const { Recipe } = require('./models');
