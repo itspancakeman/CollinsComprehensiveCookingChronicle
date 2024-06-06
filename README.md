@@ -4,6 +4,8 @@
 
 The goal of the project is the build a full stack application from scratch! My app, Collin'sComprehensiveCookingChronicle, has several databases that make it easy to find a recipe for dinner, learn more about ingredients you'd like to try, or keep track of your own learning goals!
 
+To install locally, simply fork and clone the repo, and startup the server from your console with ```npm run dev```. To navigate to the app, open your browser and type http://localhost:3000 into the navbar.
+
 Below are screenshots of my wireframes for the app:
 
 ## FULL WIREFRAME
