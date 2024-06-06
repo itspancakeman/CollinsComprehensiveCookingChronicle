@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/data-pages/allingredients.css">
     <title>All Ingredients</title>
 </head>
 <body>
@@ -16,42 +17,42 @@
       </div>
       <nav class="navbar">
         <ul>
-          <li><a href="/">Home</a></li>
+          <li id="navbar"><a href="/">Home</a></li>
           <% if(!currentUser) { %> 
-          <li><a href="/auth/signup">Signup</a></li>
-          <li><a href="/auth/login">Login</a></li>
+          <li id="navbar"><a href="/auth/signup">Signup</a></li>
+          <li id="navbar"><a href="/auth/login">Login</a></li>
           <% } else { %> 
-          <li><a href="/auth/logout">Logout</a></li>
-          <li><a href="/profile">Profile</a></li>
+          <li id="navbar"><a href="/auth/logout">Logout</a></li>
+          <li id="navbar"><a href="/profile">Profile</a></li>
           <% } %> 
-          <li><a href="/ingredients">Ingredients</a></li>
-          <li><a href="/recipes">Recipes</a></li>
-          <li><a href="/blogs">Blogs</a></li>
+          <li id="navbar"><a href="/ingredients">Ingredients</a></li>
+          <li id="navbar"><a href="/recipes">Recipes</a></li>
+          <li id="navbar"><a href="/blogs">Blogs</a></li>
         </ul>
       </nav>
-    </header>
 
       <div class="all-ingredients-header">
-        <h1>All <span id="all-ingredients-header">Ingredients</span></h1>
+        <h1 class="heading">All <span id="all-ingredients-header">Ingredients</span></h1>
       </div>
 
-      <a href="/ingredients/new">Create New Ingredient</a>
-
+    </header>
+    <div class="button">
+      <a href="/ingredients/new">
+        <button>Create New Ingredient</button>
+      </a>
+    </div>
       <div class="ingredients-container">
-        <div class="row">
-            <div class="col">
+
                 <div class="ingredients-box">
                     <% for(let i = 0; i < allIngredients.length; i++) { %>
 
                         <% let ingredient = allIngredients[i] %>
                         <div class="ingredients-content">
-                            <h3 class="ingredient-card"><%= ingredient.name %></h3>
+                            <h3><%= ingredient.name %></h3>
                             <a href="/ingredients/<%= ingredient.name %>">Learn More</a>
                         </div>
+                        <% } %>
                 </div>
-                <% } %>
-            </div>
-        </div>
       </div>
 </body>
 </html>
