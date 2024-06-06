@@ -4,15 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/data-pages/oneingredient.css">
     <title>Ingredients</title>
 </head>
 <body>
-    <div class="logo">
-        <div class="logo-img">
-            <img src="/public/Screenshots/logo.png" alt="logo-img"> 
-        </div>
-        <h3 class="app-name">Collin'sComprehensiveCookingChronicle</h3>
-    </div>
     
     <header>
       <div class="logo">
@@ -23,26 +18,27 @@
       </div>
       <nav class="navbar">
         <ul>
-          <li><a href="/">Home</a></li>
+          <li id="navbar"><a href="/">Home</a></li>
           <% if(!currentUser) { %> 
-          <li><a href="/auth/signup">Signup</a></li>
-          <li><a href="/auth/login">Login</a></li>
+          <li id="navbar"><a href="/auth/signup">Signup</a></li>
+          <li id="navbar"><a href="/auth/login">Login</a></li>
           <% } else { %> 
-          <li><a href="/auth/logout">Logout</a></li>
-          <li><a href="/profile">Profile</a></li>
+          <li id="navbar"><a href="/auth/logout">Logout</a></li>
+          <li id="navbar"><a href="/profile">Profile</a></li>
           <% } %> 
-          <li><a href="/ingredients">Ingredients</a></li>
-          <li><a href="/recipes">Recipes</a></li>
-          <li><a href="/blogs">Blogs</a></li>
+          <li id="navbar"><a href="/ingredients">Ingredients</a></li>
+          <li id="navbar"><a href="/recipes">Recipes</a></li>
+          <li id="navbar"><a href="/blogs">Blogs</a></li>
         </ul>
       </nav>
-    </header>
 
-      <div class="ing-name">
-            <h1><span id="ing-name"><%= ingredient.name %></span></h1>
+      <div class="ing-name-header">
+        <h1 class="heading"><%= ingredient.name %></h1>
       </div>
 
-      <div class="edit-delete-container">
+    </header>
+
+      <div class="button">
         <a href="/ingredients/<%= ingredient.name %>/edit">
           <button>EDIT</button>
         </a>
@@ -57,12 +53,15 @@
         <table class="table table-dark">
             <thead>
               <tr>
-                <th scope="col">Breakdown:</th>
+                <th scope="col">Category:</th>
+                <th scope="col">Data:</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <th scope="row">Average Weight:</th>
+                
+                
                 <td><%= ingredient.avgWeight %></td>
               </tr>
               <tr>
