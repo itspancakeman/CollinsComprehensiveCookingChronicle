@@ -18,6 +18,15 @@ router.get('/:blogID/edit', isLoggedIn, async (req, res) => {
     }
 });
 
+router.put('/:blogID', (req, res) => {
+    try {
+        Blog.updateOne({ id: req.params.blogID });
+    } catch (error) {
+        console.log('----error-----', error);
+    }
+    res.redirect('/blogs');
+});
+
 // ----- DELETE BLOG POST -----
 router.get('/:blogID/delete', isLoggedIn, async (req, res) => {
     try {
@@ -26,6 +35,14 @@ router.get('/:blogID/delete', isLoggedIn, async (req, res) => {
     } catch (error) {
         res.status(404).send('<h1>404! Page Not Found.</h1>');
     }
+});
+
+router.delete('/:blogID', (req, res) => {
+    Blog.deleteOne({ id: req.params.blogID }).then(function(){
+        res.redirect('/blogs');
+    }).catch(function(error){
+        console.log('----error----', error);
+    })
 });
 
 // ----- NEW BLOG POST -----

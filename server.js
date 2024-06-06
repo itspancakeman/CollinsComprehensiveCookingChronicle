@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 3000;
 const passport = require('./config/passport-config');
 const isLoggedIn = require('./middleware/isLoggedIn');
 const SECRET_SESSION = process.env.SECRET_SESSION;
+const methodOverride = require('method-override');
 const { User } = require('./models');
 const { Ingredient } = require('./models');
 const { Recipe } = require('./models');
@@ -24,7 +25,7 @@ app.use(session({
     saveUninitialized: true
 }));
 app.use(flash());
-
+app.use(methodOverride('_method'));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -108,10 +109,28 @@ app.get('/ingredients/:ingredientName', async (req, res) => {
     }
 });
 
+app.put('/ingredients/:ingredientName', (req, res) => {
+    try {
+        Ingredient.updateOne({ name: req.params.ingredientName})
+    } catch (error) {
+        console.log('----error-----', error);
+    }
+    res.redirect('/ingredients');
+});
+
+app.delete('/ingredients/:ingredientName', (req, res) => {
+    Ingredient.deleteOne({ name: req.params.ingredientName}).then(function(){
+        res.redirect('/ingredients');
+    }).catch(function(error){
+        console.log('----error----', error);
+    })
+});
+
 //----- EDIT INGREDIENT -----
 app.get('/ingredients/:ingredientName/edit', async (req, res) => {
     try{
         const ingredient = await Ingredient.findOne({ name: req.params.ingredientName});
+        console.log('----edit route----', ingredient);
         res.render('data/editingredient', {ingredient: ingredient});
     } catch (error) {
         res.status(404).send('<h1>404! Page Not Found.</h1>')
@@ -173,7 +192,7 @@ app.get('/blogs/:blogID', async (req, res) => {
     try {
         const foundBlog = await Blog.findOne({ id: req.params.blogID})
         if (foundBlog.title && foundBlog.id && foundBlog.postedWhen && 
-            foundBlog.postedBy && foundBlog.content && foundBlog.relatedImages) {
+            foundBlog.postedBy && foundBlog.content) {
                 res.render('data/blogs', { blog: foundBlog });
             }
         } catch (error) {
