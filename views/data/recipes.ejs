@@ -4,16 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/data-pages/onerecipe.css">
     <title>Recipes</title>
 </head>
 <body>
-    <div class="logo">
-        <div class="logo-img">
-            <img src="#" alt="logo-img"> 
-        </div>
-        <h3 class="app-name">Collin'sComprehensiveCookingChronicle</h3>
-    </div>
-    
     <header>
       <div class="logo">
         <div class="logo-img">
@@ -23,32 +17,34 @@
       </div>
       <nav class="navbar">
         <ul>
-          <li><a href="/">Home</a></li>
+          <li id="navbar"><a href="/">Home</a></li>
           <% if(!currentUser) { %> 
-          <li><a href="/auth/signup">Signup</a></li>
-          <li><a href="/auth/login">Login</a></li>
+          <li id="navbar"><a href="/auth/signup">Signup</a></li>
+          <li id="navbar"><a href="/auth/login">Login</a></li>
           <% } else { %> 
-          <li><a href="/auth/logout">Logout</a></li>
-          <li><a href="/profile">Profile</a></li>
+          <li id="navbar"><a href="/auth/logout">Logout</a></li>
+          <li id="navbar"><a href="/profile">Profile</a></li>
           <% } %> 
-          <li><a href="/ingredients">Ingredients</a></li>
-          <li><a href="/recipes">Recipes</a></li>
-          <li><a href="/blogs">Blogs</a></li>
+          <li id="navbar"><a href="/ingredients">Ingredients</a></li>
+          <li id="navbar"><a href="/recipes">Recipes</a></li>
+          <li id="navbar"><a href="/blogs">Blogs</a></li>
         </ul>
       </nav>
-    </header>
 
       <div class="recipe-header">
-        <h1><span id="recipe-header"><%= recipe.name %></span></h1>
+        <h1 class="heading"><%= recipe.name %></h1>
         <h2>Posted By: <%= recipe.submittedBy %></h2>
         <h2>Total Time Til Eating: <%= recipe.totalTime %></h2>
       </div>
+
+    </header>
 
       <div class="ing-list">
         <table class="table table-dark">
           <thead>
             <tr>
               <th scope="col">Ingredients:</th>
+              <th scope="col">Item#1</th>
             </tr>
           </thead>
           <tbody>
@@ -56,64 +52,60 @@
 
             <tr>
               <td><%= recipe.ingredients.item1.ing1 %></td>
-            </tr>
-            <tr>
               <td><%= recipe.ingredients.item1.ing2 %></td>
             </tr>
             <tr>
               <td><%= recipe.ingredients.item1.ing3 %></td>
-            </tr>
-            <tr>
               <td><%= recipe.ingredients.item1.ing4 %></td>
             </tr>
             <tr>
               <td><%= recipe.ingredients.item1.ing5 %></td>
-            </tr>
-            <tr>
               <td><%= recipe.ingredients.item1.ing6 %></td>
             </tr>
             <tr>
               <td><%= recipe.ingredients.item1.ing7 %></td>
-            </tr>
-            <tr>
               <td><%= recipe.ingredients.item1.ing8 %></td>
             </tr>
             <tr>
               <td><%= recipe.ingredients.item1.ing9 %></td>
+              <td> </td>
             </tr>
+
+            <tr>
+              <th scope="col">Ingredients:</th>
+              <th scope="col">Item#2</th>
+            </tr>
+
              <!-- ===== second item list ===== -->
             <tr>
               <td><%= recipe.ingredients.item2.ing1 %></td>
-            </tr>
-            <tr>
               <td><%= recipe.ingredients.item2.ing2 %></td>
             </tr>
             <tr>
               <td><%= recipe.ingredients.item2.ing3 %></td>
-            </tr>
-            <tr>
               <td><%= recipe.ingredients.item2.ing4 %></td>
             </tr>
             <tr>
               <td><%= recipe.ingredients.item2.ing5 %></td>
-            </tr>
-            <tr>
               <td><%= recipe.ingredients.item2.ing6 %></td>
             </tr>
             <tr>
               <td><%= recipe.ingredients.item2.ing7 %></td>
+              <td> </td>
             </tr>
+
+            <tr>
+              <th scope="col">Ingredients:</th>
+              <th scope="col">Item#3</th>
+            </tr>
+
              <!-- ===== third item list ===== -->
             <tr>
               <td><%= recipe.ingredients.item3.ing1 %></td>
-            </tr>
-            <tr>
               <td><%= recipe.ingredients.item3.ing2 %></td>
             </tr>
             <tr>
               <td><%= recipe.ingredients.item3.ing3 %></td>
-            </tr>
-            <tr>
               <td><%= recipe.ingredients.item3.ing4 %></td>
             </tr>
           </tbody>
@@ -147,11 +139,11 @@
         </table>
       </div>
 
-     <div class="recipe-pics">
+     <!-- <div class="recipe-pics">
       <img src="#" alt="recipe-pic-1">
       <img src="#" alt="recipe-pic-2">
       <img src="#" alt="recipe-pic-3">
-     </div>
+     </div> -->
      
 </body>
 </html>
