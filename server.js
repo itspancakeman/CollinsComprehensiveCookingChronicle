@@ -131,7 +131,6 @@ app.delete('/ingredients/:ingredientName', (req, res) => {
 app.get('/ingredients/:ingredientName/edit', async (req, res) => {
     try{
         const ingredient = await Ingredient.findOne({ name: req.params.ingredientName});
-        console.log('----edit route----', ingredient);
         res.render('data/editingredient', {ingredient: ingredient});
     } catch (error) {
         res.status(404).send('<h1>404! Page Not Found.</h1>')
