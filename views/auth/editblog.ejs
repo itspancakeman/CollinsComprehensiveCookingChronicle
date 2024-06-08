@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/data-pages/editblog.css">
     <title>Edit Post</title>
 </head>
 <body>
@@ -21,29 +22,27 @@
   
     <header>
       <div class="logo">
-        <div class="logo-img">
             <img src="/Screenshots/logo.png" alt="logo-img"> 
-        </div>
         <h3 class="app-name">Collin'sComprehensiveCookingChronicle</h3>
       </div>
       <nav class="navbar">
         <ul>
-          <li><a href="/">Home</a></li>
+          <li id="navbar"><a href="/">Home</a></li>
           <% if(!currentUser) { %> 
-          <li><a href="/auth/signup">Signup</a></li>
-          <li><a href="/auth/login">Login</a></li>
+          <li id="navbar"><a href="/auth/signup">Signup</a></li>
+          <li id="navbar"><a href="/auth/login">Login</a></li>
           <% } else { %> 
-          <li><a href="/auth/logout">Logout</a></li>
-          <li><a href="/profile">Profile</a></li>
+          <li id="navbar"><a href="/auth/logout">Logout</a></li>
+          <li id="navbar"><a href="/profile">Profile</a></li>
           <% } %> 
-          <li><a href="/ingredients">Ingredients</a></li>
-          <li><a href="/recipes">Recipes</a></li>
-          <li><a href="/blogs">Blogs</a></li>
+          <li id="navbar"><a href="/ingredients">Ingredients</a></li>
+          <li id="navbar"><a href="/recipes">Recipes</a></li>
+          <li id="navbar"><a href="/blogs">Blogs</a></li>
         </ul>
       </nav>
 
       <div class="edit-blog-header">
-        <h1>EDIT BLOG</h1>
+        <h1 class="heading">EDIT BLOG</h1>
       </div>
 
     </header>
@@ -54,21 +53,23 @@
             <form action="/blogs/<%= blog.id %>/?_method=PUT" method="POST">
             
                 <div class="edit-blog-form">
-                    <div class="form-text" id="editBlogHeader">Make changes here</div>
+                    <div id="editBlogHeader">
+                      <h3 class="form-label">Make changes here</h3>
+                    </div>
                 </div>
 
                 <div class="edit-blog-form">
                     <label for="title" class="form-label">title:</label>
-                    <input type="text" class="form-control" id="title" name="title" value="<%= blog.title %>">
+                    <input type="text" class="blog-title" id="title" name="title" value="<%= blog.title %>">
                 </div>
 
                 <div class="edit-blog-form">
-                    <label for="post" class="form-label">post:</label>
-                    <input type="text" class="form-control" id="post" name="post" value="<%= blog.content %>">
+                    <label for="post" class="form-label" id="post">post:</label>
+                    <textarea type="text" class="blog-content" id="post" name="post"><%= blog.content %></textarea>
                 </div>
 
                 <div class="edit-blog-form">
-                    <input type="submit" class="form-control" id="submitButton">
+                    <input type="submit" class="form-control" id="button">
                 </div>
 
             </form>

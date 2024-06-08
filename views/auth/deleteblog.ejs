@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/data-pages/deleteblog.css">
     <title>Delete Blog Post</title>
 </head>
 <body>
@@ -15,23 +16,24 @@
         </div>
         <nav class="navbar">
           <ul>
-            <li><a href="/">Home</a></li>
-            <% if(!currentUser) { %> 
-            <li><a href="/auth/signup">Signup</a></li>
-            <li><a href="/auth/login">Login</a></li>
-            <% } else { %> 
-            <li><a href="/auth/logout">Logout</a></li>
-            <li><a href="/profile">Profile</a></li>
-            <% } %> 
-            <li><a href="/ingredients">Ingredients</a></li>
-            <li><a href="/recipes">Recipes</a></li>
-            <li><a href="/blogs">Blogs</a></li>
+            <li id="navbar"><a href="/">Home</a></li>
+          <% if(!currentUser) { %> 
+          <li id="navbar"><a href="/auth/signup">Signup</a></li>
+          <li id="navbar"><a href="/auth/login">Login</a></li>
+          <% } else { %> 
+          <li id="navbar"><a href="/auth/logout">Logout</a></li>
+          <li id="navbar"><a href="/profile">Profile</a></li>
+          <% } %> 
+          <li id="navbar"><a href="/ingredients">Ingredients</a></li>
+          <li id="navbar"><a href="/recipes">Recipes</a></li>
+          <li id="navbar"><a href="/blogs">Blogs</a></li>
           </ul>
         </nav>
 
-        <div class="delete-ingredient-header">
-            <h1>DELETE BLOG POST</h1>
+        <div class="delete-blog-header">
+            <h1 class="heading">DELETE BLOG POST</h1>
         </div>
+
       </header>
 
 
@@ -41,13 +43,13 @@
 
         <form action="/blogs/<%= blog.id %>/?_method=DELETE" method="POST">
         
-        <div class="delete-form">
-            <input type="submit" value="YES, delete post">
+        <div class="button">
+            <input type="submit" class="button" id="button" value="YES, delete post">
         </div>
 
-        <div class="delete-form">
+        <div class="button">
             <a href="/blogs/<%= blog.id %>">
-                <input type="button" value="NO, take me back">
+                <button>NO, take me back</button>
             </a>
         </div>
 
