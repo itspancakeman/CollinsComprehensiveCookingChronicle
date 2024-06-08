@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasty Recipes</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+          <div class="logo-img">
+              <img src="/Screenshots/logo.png" alt="logo-img"> 
+          </div>
+          <h3 class="app-name">Collin'sComprehensiveCookingChronicle</h3>
+        </div>
+        <nav class="navbar">
+          <ul>
+            <li id="navbar"><a href="/">Home</a></li>
+            <% if(!currentUser) { %> 
+            <li id="navbar"><a href="/auth/signup">Signup</a></li>
+            <li id="navbar"><a href="/auth/login">Login</a></li>
+            <% } else { %> 
+            <li id="navbar"><a href="/auth/logout">Logout</a></li>
+            <li id="navbar"><a href="/profile">Profile</a></li>
+            <% } %> 
+            <li id="navbar"><a href="/ingredients">Ingredients</a></li>
+            <li id="navbar"><a href="/recipes">Recipes</a></li>
+            <li id="navbar"><a href="/blogs">Blogs</a></li>
+          </ul>
+        </nav>
+  
+        <div class="tasty-recipes-header">
+            <h1 class="heading">All <span id="tasty-recipes-header">Tasty</span> Recipes</h1>
+        </div>
+  
+      </header>
+  
+      <div class="tasty-recipes-container">
+
+        <div class="recipe-name">
+            <h1><%= tasty.name %></h1>
+        </div>
+
+        <div class="cook-time">
+            <h3>Cook Time: <%= tasty.cookTime %></h3>
+        </div>
+
+        <div class="servings">
+            <h3>Servings: <%= tasty.servings %></h3>
+        </div>
+
+        <div class="directions">
+            <h3>Servings: <%= tasty.directions %></h3>
+        </div>
+
+      </div>
+
+</body>
+</html>

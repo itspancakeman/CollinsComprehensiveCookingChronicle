@@ -1,5 +1,6 @@
 // ===== GLOBAL VARIABLES =====
-require('dotenv').config();
+const dotenv = require('dotenv');
+dotenv.config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
@@ -66,7 +67,6 @@ app.post('/ingredients', urlencodedParser, async (req, res) => {
         color: color,
         scientificName: scientificName,
     })
-    console.log('-----new ingredient-----', newIngredient);
         res.redirect('/ingredients');
 } catch(error){
         console.log('-----error-----\n', error);
@@ -110,13 +110,40 @@ app.get('/ingredients/:ingredientName', async (req, res) => {
     }
 });
 
-app.put('/ingredients/:ingredientName', (req, res) => {
+app.put('/ingredients/:ingredientName', async(req, res) => {
     try {
-        Ingredient.updateOne({ name: req.params.ingredientName})
+        const { name, avgWeight, flavor, edibleRaw, origin, color, scientificName } = req.body;
+        const isEdibleRaw = edibleRaw === 'option1';
+        const avgWeightFloat = parseFloat(avgWeight);
+        if (isNaN(avgWeightFloat)) {
+            req.flash('error', 'Average weight must be a valid number');
+            return res.redirect(`/ingredients/${req.params.ingredientName}/edit`);
+        }
+        const updatedIngredient = await Ingredient.findOneAndUpdate(
+            { name: req.params.ingredientName },
+            {
+                name: name,
+                avgWeight: avgWeightFloat,
+                flavor: flavor,
+                edibleRaw: isEdibleRaw,
+                origin: origin,
+                color: color,
+                scientificName: scientificName
+            },
+            { new: true }
+        );
+        if (updatedIngredient) {
+            
+            res.redirect('/ingredients');
+        } else {
+            req.flash('error', 'Ingredient not found');
+            res.redirect('/ingredients');
+        }
     } catch (error) {
         console.log('----error-----', error);
+        req.flash('error', 'Error updating ingredient');
+        res.redirect('/ingredients');
     }
-    res.redirect('/ingredients');
 });
 
 app.delete('/ingredients/:ingredientName', (req, res) => {
@@ -155,6 +182,25 @@ app.get('/recipes', async (req, res) => {
         } catch (error) {
         res.status(404).send('<h1>404! Page Not Found.</h1>')
     }
+});
+
+app.get('/recipes/tasty', (req, res) => {
+    axios.get('https://tasty.p.rapidapi.com/recipes/list', {
+        headers: {'x-rapidapi-key': process.env.X_RAPIDAPI_KEY, 'x-rapidapi-host': 'tasty.p.rapidapi.com'}
+})
+.then((response) => {
+
+    const recipeObject = {
+        name: response.data.results[0].name,
+        cookTime: response.data.results[0].cook_time_minutes,
+        servings: response.data.results[0].num_servings,
+        directions: response.data.results[0].instructions[0].display_text
+    }
+    res.render('data/tasty', {tasty: recipeObject});
+    })
+    .catch(error => {
+        console.log('=====ERROR=====', error)
+    })
 });
 
 //----- SINGLE RECIPE -----

@@ -39,11 +39,13 @@
 
         <h1>ARE YOU SURE?</h1>
 
-        <form action="/ingredients/<%= ingredient.name %>/?_method=DELETE" method="POST">
+        <form action="/ingredients/<%= ingredient.name %>?_method=DELETE" method="POST">
         
         <div class="delete-form">
             <input type="submit" value="YES, delete ingredient" id="button">
         </div>
+
+        </form>
 
         <div class="delete-form">
             <a href="/ingredients/<%= ingredient.name %>">
@@ -51,7 +53,7 @@
             </a>
         </div>
 
-        </form>
+        
 
       </div>
 

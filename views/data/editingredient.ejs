@@ -48,8 +48,10 @@
     </header>
 
     <div class='form-container'>
+        <% if (ingredient) { %>
+            <%console.log("INGREDIENT", ingredient.name,"INGREDIENT NAME"); %>
+            <form action="/ingredients/<%= ingredient.name %>?_method=PUT" method="POST">
 
-        <form action="/ingredients/<%= ingredient.name %>/?_method=PUT" method="POST">
         
             <div class="ing-form">
                 <label for="name" class="form-label">Ingredient Name</label>
@@ -57,7 +59,7 @@
             </div>
             <div class="ing-form">
                 <label for="avgWeight" class="form-label">Average Weight</label>
-                <input type="text" class="form-control" id="avgWeight" name="avgWeight" value="<%= ingredient.avgWeight %>">
+                <input type="number" class="form-control" id="avgWeight" name="avgWeight" value="<%= ingredient.avgWeight %>">
             </div>
             <div class="ing-form">
                 <label for="flavor" class="form-label">Flavor</label>
@@ -91,6 +93,9 @@
             </div>
         
         </form>
+        <% } else { %>
+            <p>Ingredient not found.</p>
+        <% } %>
 
     </div>
 
