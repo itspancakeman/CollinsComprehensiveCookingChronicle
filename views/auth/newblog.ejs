@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/data-pages/newblog.css">
     <title>New Blog Post</title>
 </head>
 <body>
@@ -22,9 +23,7 @@
 
     <header>
         <div class="logo">
-          <div class="logo-img">
-              <img src="/Screenshots/logo.png" alt="logo-img"> 
-          </div>
+          <img src="/Screenshots/logo.png" alt="logo-img"> 
           <h3 class="app-name">Collin'sComprehensiveCookingChronicle</h3>
         </div>
         <nav class="navbar">
@@ -44,40 +43,44 @@
         </nav>
     
         <div class="new-blog-header">
-          <h1>Create a new blog post</h1>
+          <h1 class="heading">Create a new blog post</h1>
           <h2>Share cooking tips, or reflect on your memorable food experiences!</h2>
         </div>
     
       </header>
-
+        
+      <div class="button">
+        <a href="/blogs">
+          <button>go back...</button>
+        </a>
+      </div>
 
       <div class="form-container">
-        <a href="/blogs">go back...</a>
 
         <form action="/blogs" method="POST">
 
             <div class="blog-form">
-                <label for="title" class="form-label">Title</label>
+                <label for="title" class="form-label">Title:</label>
                 <input type="text" class="form-control" id="title" name="title">
             </div>
 
             <div class="blog-form">
-                <label for="id" class="form-label">ID number</label>
+                <label for="id" class="form-label">ID number:</label>
                 <input type="number" class="form-control" id="id" name="id">
             </div>
 
             <div class="blog-form">
-                <label for="post" class="form-label">Post</label>
-                <input type="text" class="form-control" id="post" name="post" placeholder="share your thoughts here">
+                <label for="post" class="form-label">Post:</label>
+                <textarea type="text" class="form-control" id="post" name="post" placeholder="share your thoughts here"></textarea>
             </div>
 
             <div class="blog-form">
-                <label for="images" class="form-label">Images (optional)</label>
+                <label for="images" class="form-label">Images (optional):</label>
                 <input type="file" class="form-control" id="images" name="images">
             </div>
 
             <div class="blog-form">
-                <input type="submit" class="form-control" id="submitButton">
+                <input type="submit" class="form-control" id="button">
             </div>
 
         </form>
