@@ -39,9 +39,6 @@ Below here you can also find a screenshot of some of my first user stories. I'm 
 
 ![user-stories](https://github.com/itspancakeman/Poject-2--FullStackApplication/assets/111628154/35b99315-b573-4cca-bd13-7cee5e9025dd)
 
-## UPDATE 3 
+## UPDATE 4 
 
-All of my ```GET``` routes and ```ejs``` pages are now working as intended, last functionality things to add are 2 ```PUT``` and ```DELETE``` routes plus integrating an API.
-I have also finished styling for my home page which should act as a great template for quickly styling the other pages.
-After these few items are completed I will just have to make sure a few ```<a>``` tags actually have places to go and I will be in the read-to-deliver zone. 
-Stretch goals for ahead of the actual due date for this project primarily revolve around adding more data. I'd like to seed a few more things to make sure the app actually has some content to it. 
+App should now have full functionality according to the requirements for this project. Still to come later down the line with my free time will be a working email form connected to the link at the bottom of my home page, and a feature that will allow users to save blog posts and recipes to their profile. I also plan to continually add data to this and update the recipes available from the Tasty API as a personal interest project.
