@@ -18,13 +18,31 @@ router.get('/:blogID/edit', isLoggedIn, async (req, res) => {
     }
 });
 
-router.put('/:blogID', (req, res) => {
+router.put('/:blogID', urlencodedParser, async (req, res) => {
+
+    const { title, id, postedWhen, postedBy, post, post2, relatedImages } = req.body;
+
     try {
-        Blog.updateOne({ id: req.params.blogID });
+        const updatedBlog = await Blog.findOneAndUpdate(
+            { id: req.params.blogID },
+            {
+                title: title,
+                id: id,
+                postedWhen: postedWhen,
+                postedBy: postedBy,
+                content: {post, post2},
+                relatedImages: relatedImages
+            },
+            {returnNewDocument: true}
+        );
+        if (updatedBlog) {
+            res.redirect('/blogs');
+        }
     } catch (error) {
         console.log('----error-----', error);
+        req.flash('error', 'Error updating ingredient');
+        res.redirect('/');
     }
-    res.redirect('/blogs');
 });
 
 // ----- DELETE BLOG POST -----

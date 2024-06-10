@@ -110,15 +110,19 @@ app.get('/ingredients/:ingredientName', async (req, res) => {
     }
 });
 
-app.put('/ingredients/:ingredientName', async(req, res) => {
+app.put('/ingredients/:ingredientName', urlencodedParser, async(req, res) => {
+    
+    const { name, avgWeight, flavor, edibleRaw, origin, color, scientificName } = req.body;
+    const isEdibleRaw = edibleRaw === 'option1';
+    const avgWeightFloat = parseFloat(avgWeight);
+    console.log(avgWeight);
+
     try {
-        const { name, avgWeight, flavor, edibleRaw, origin, color, scientificName } = req.body;
-        const isEdibleRaw = edibleRaw === 'option1';
-        const avgWeightFloat = parseFloat(avgWeight);
         if (isNaN(avgWeightFloat)) {
             req.flash('error', 'Average weight must be a valid number');
             return res.redirect(`/ingredients/${req.params.ingredientName}/edit`);
         }
+        
         const updatedIngredient = await Ingredient.findOneAndUpdate(
             { name: req.params.ingredientName },
             {
@@ -130,7 +134,7 @@ app.put('/ingredients/:ingredientName', async(req, res) => {
                 color: color,
                 scientificName: scientificName
             },
-            { new: true }
+            {returnNewDocument: true}
         );
         if (updatedIngredient) {
             

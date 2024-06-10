@@ -135,11 +135,14 @@ button {
     width: 1000px;
     background: var(--second-bg-color);
     margin-left: 450px;
+    text-align: left;
+    padding: 5px;
 }
 
 .edit-blog-form .blog-title {
     width: 500px;
-    padding-left: 15px;
+    padding-left: 10px;
+    margin-left: 104px;
 }
 
 .edit-blog-form .blog-content {
@@ -152,5 +155,17 @@ button {
 
 .edit-blog-form .form-label {
     background: var(--second-bg-color);
-    padding: 5px;
+}
+
+.edit-blog-form #post {
+    margin-left: 3px;
+    width: 500px;
+    height: 150px;
+    padding-left: 10px;
+}
+
+.edit-blog-form #post2 {
+    width: 500px;
+    height: 150px;
+    padding-left: 10px;
 }
