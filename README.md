@@ -4,7 +4,21 @@
 
 The goal of the project is the build a full stack application from scratch! My app, Collin'sComprehensiveCookingChronicle, has several databases that make it easy to find a recipe for dinner, learn more about ingredients you'd like to try, or keep track of your own learning goals!
 
-To install locally, simply fork and clone the repo, and startup the server from your console with ```npm run dev```. To navigate to the app, open your browser and type http://localhost:3000 into the navbar.
+To install locally, simply fork and clone the repo, install dependancies(listed below), and startup the server from your console with ```npm run dev```. To navigate to the app, open your browser and type http://localhost:3000 into the navbar.
+Alternatively, you can also now use my live link to access the page from any device or location -- https://collinscomprehensivecookingchronicle.onrender.com
+
+| REQUIRED     | DEPENDENCIES |
+| ------------ | ------------ |
+| axios | bcrypt |
+| body-parser | method-override |
+| connect-flash | dotenv |
+| ejs | express |
+| express-ejs-layouts | express-session |
+| mongoose | mongodb |
+| passport-local | passport |
+
+
+
 
 Below are screenshots of my wireframes for the app:
 
