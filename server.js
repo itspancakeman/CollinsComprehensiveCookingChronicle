@@ -190,12 +190,32 @@ app.get('/recipes/tasty', (req, res) => {
 })
 .then((response) => {
 
+    
+
     const recipeObject = {
         name: response.data.results[0].name,
         cookTime: response.data.results[0].cook_time_minutes,
+        prepTime: response.data.results[0].prep_time_minutes,
         servings: response.data.results[0].num_servings,
-        directions: response.data.results[0].instructions[0].display_text
-    }
+        ingredients: {
+            ing1: response.data.results[0].sections[0].components[0].raw_text,
+            ing2: response.data.results[0].sections[0].components[1].raw_text,
+            ing3: response.data.results[0].sections[0].components[2].raw_text,
+            ing4: response.data.results[0].sections[0].components[3].raw_text,
+            ing5: response.data.results[0].sections[0].components[4].raw_text,
+            ing6: response.data.results[0].sections[0].components[5].raw_text,
+            ing7: response.data.results[0].sections[0].components[6].raw_text,
+            ing8: response.data.results[0].sections[0].components[7].raw_text,
+            ing9: response.data.results[0].sections[0].components[8].raw_text,
+            ing10: response.data.results[0].sections[0].components[9].raw_text,
+            ing11: response.data.results[0].sections[0].components[10].raw_text,
+        },
+        directions: {
+            step1: response.data.results[0].instructions[0].display_text,
+            step2: response.data.results[0].instructions[1].display_text,
+            step3: response.data.results[0].instructions[2].display_text,
+            step4: response.data.results[0].instructions[3].display_text,
+    }}
     res.render('data/tasty', {tasty: recipeObject});
     })
     .catch(error => {

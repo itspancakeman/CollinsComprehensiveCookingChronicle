@@ -47,7 +47,8 @@ router.delete('/:blogID', (req, res) => {
 
 // ----- NEW BLOG POST -----
 router.post('/', urlencodedParser, isLoggedIn, async (req, res) => {
-    const { title, id, post, images } = req.body;
+    const { title, id, post, post2, img, img2 } = req.body;
+    const user = req.user.name
     const date = new Date();
     if (!title || !id || !post) {
         req.flash('error', 'Title, ID, and post are required');
@@ -61,9 +62,9 @@ router.post('/', urlencodedParser, isLoggedIn, async (req, res) => {
                 title: title,
                 id: id,
                 postedWhen: date.toISOString(),
-                postedBy: req.user._id,                                                                                                               
-                content: post,
-                relatedImages: images
+                postedBy: user,                                                                                                               
+                content: {post, post2},
+                relatedImages: {img, img2}
             });
             console.log('-----new blog -----', newBlogPost);
             req.flash('success', 'Post successfully created!');

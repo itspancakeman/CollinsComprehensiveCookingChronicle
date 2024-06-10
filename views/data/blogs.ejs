@@ -53,16 +53,18 @@
     <div class="content-container">
 
         <div class="content-text1">
-            <p><%= blog.content.section1 %></p>
+            <p><%= blog.content.post %></p>
         </div>
 
-        <div class="blog-img1">
-          <img src="https://www.simplyrecipes.com/thmb/YrDbtJD7UObEMjOLiV6gJt6yt2A=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Oven-Roasted-Vegetables-LEAD-8-58102e6b825944c68aee7565401974f2.jpg" alt="Blog Image1" id="blogimg1">
-          <img src="https://myplate-prod.azureedge.us/sites/default/files/styles/large/public/2021-09/OvenRoastedVegetables_527x323.jpg?itok=66JBk_se" alt="Blog Image2" id="blogimg2">
-      </div>
+        <div class="blog-img">
+          <img src=<%= blog.relatedImages.img %>>
+        </div>
 
+        <div class="blog-img2">
+          <img src=<%= blog.relatedImages.img2 %>>
+        </div>
         <div class="content-text2">
-            <p><%= blog.content.section2 %></p>
+            <p><%= blog.content.post2 %></p>
         </div>
         
     </div>

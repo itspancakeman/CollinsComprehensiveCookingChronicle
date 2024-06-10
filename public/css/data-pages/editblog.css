@@ -134,7 +134,6 @@ button {
 .edit-blog-form {
     width: 1000px;
     background: var(--second-bg-color);
-    text-align: center;
     margin-left: 450px;
 }
 

@@ -64,8 +64,13 @@
                 </div>
 
                 <div class="edit-blog-form">
-                    <label for="post" class="form-label" id="post">post:</label>
-                    <textarea type="text" class="blog-content" id="post" name="post"><%= blog.content %></textarea>
+                  <label for="post" class="form-label">Text Section #1 -- </label>
+                  <input type="text" class="form-control" id="post" name="post" value="<%= blog.content.post %>">
+                </div>
+  
+                <div class="edit-blog-form">
+                  <label for="post2" class="form-label">Text Section #2 -- </label>
+                  <input type="text" class="form-control" id="post2" name="post2" value="<%= blog.content.post %>">
                 </div>
 
                 <div class="edit-blog-form">

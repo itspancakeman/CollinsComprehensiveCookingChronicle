@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/data-pages/tastyrecipes.css">
     <title>Tasty Recipes</title>
 </head>
 <body>
     <header>
         <div class="logo">
-          <div class="logo-img">
               <img src="/Screenshots/logo.png" alt="logo-img"> 
-          </div>
           <h3 class="app-name">Collin'sComprehensiveCookingChronicle</h3>
         </div>
         <nav class="navbar">
@@ -30,7 +29,8 @@
         </nav>
   
         <div class="tasty-recipes-header">
-            <h1 class="heading">All <span id="tasty-recipes-header">Tasty</span> Recipes</h1>
+            <h1 class="heading">All <span>Tasty</span> Recipes</h1>
+            <img src="https://logowik.com/content/uploads/images/tasty2497.jpg">
         </div>
   
       </header>
@@ -39,18 +39,54 @@
 
         <div class="recipe-name">
             <h1><%= tasty.name %></h1>
+            <img src="https://img.buzzfeed.com/thumbnailer-prod-us-east-1/45b4efeb5d2c4d29970344ae165615ab/FixedFBFinal.jpg" alt="thumbnail">
         </div>
 
-        <div class="cook-time">
-            <h3>Cook Time: <%= tasty.cookTime %></h3>
+        <div class="info-box">
+          <h3>Cook Time: <%= tasty.cookTime %></h3>
+          <h3>Prep Time: <%= tasty.prepTime %></h3>
+          <h3>Servings: <%= tasty.servings %></h3>
         </div>
 
-        <div class="servings">
-            <h3>Servings: <%= tasty.servings %></h3>
+        <div class="ingredients">
+        <table>
+          <tr>
+            <th>Ingredients</th>
+            <th> </th>
+          </tr>
+          <tr>
+            <td><%= tasty.ingredients.ing1 %></td>
+            <td><%= tasty.ingredients.ing2 %></td>
+          </tr>
+          <tr>
+            <td><%= tasty.ingredients.ing3 %></td>
+            <td><%= tasty.ingredients.ing4 %></td>
+          </tr>
+          <tr>
+            <td><%= tasty.ingredients.ing5 %></td>
+            <td><%= tasty.ingredients.ing6 %></td>
+          </tr>
+          <tr>
+            <td><%= tasty.ingredients.ing7 %></td>
+            <td><%= tasty.ingredients.ing8 %></td>
+          </tr>
+          <tr>
+            <td><%= tasty.ingredients.ing9 %></td>
+            <td><%= tasty.ingredients.ing10 %></td>
+          </tr>
+          <tr>
+            <td><%= tasty.ingredients.ing11 %></td>
+          </tr>
+
+        </table>
         </div>
 
         <div class="directions">
-            <h3>Servings: <%= tasty.directions %></h3>
+            <h3>Directions: </h3>
+              <p>Step #1 -- <%= tasty.directions.step1 %></p>
+              <p>Step #2 -- <%= tasty.directions.step2 %></p>
+              <p>Step #3 -- <%= tasty.directions.step3 %></p>
+              <p>Step #4 -- <%= tasty.directions.step4 %></p>
         </div>
 
       </div>
